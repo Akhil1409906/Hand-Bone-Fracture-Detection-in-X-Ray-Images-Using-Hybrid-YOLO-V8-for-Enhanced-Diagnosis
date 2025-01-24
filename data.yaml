@@ -1,0 +1,8 @@
+
+path: D:/AKHIL/AKHIL/YOLO(major_projects)/Bone_Fracture/bone.v1i.yolov8
+test: D:/AKHIL/AKHIL/YOLO(major_projects)/Bone_Fracture/bone.v1i.yolov8/test
+train: D:/AKHIL/AKHIL/YOLO(major_projects)/Bone_Fracture/bone.v1i.yolov8/train
+val: D:/AKHIL/AKHIL/YOLO(major_projects)/Bone_Fracture/bone.v1i.yolov8/valid
+
+nc: 4  # Number of classes
+names: ['fracture', 'line', 'angle', 'messed_up_angle']  # Class names
