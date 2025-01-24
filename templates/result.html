@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Journey HTML CSS Template</title>
+<!-- 
+Journey Template 
+http://www.templatemo.com/tm-511-journey
+-->
+    <!-- load stylesheets -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+     <!-- Google web font "Open Sans" -->
+    <link rel="stylesheet" href="static/font-awesome-4.7.0/css/font-awesome.min.css">                <!-- Font Awesome -->
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">                                      <!-- Bootstrap style -->
+    <link rel="stylesheet" type="text/css" href="static/css/datepicker.css"/>
+    <link rel="stylesheet" type="text/css" href="static/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="static/slick/slick-theme.css"/>
+    <link rel="stylesheet" href="static/css/templatemo-style.css">                                   <!-- Templatemo style -->
+    <title>Detection Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f0f4f8;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            justify-content: flex-start;
+        }
+
+        h1 {
+            color: #0077cc;
+            margin: 20px 0;
+            font-size: 2.5rem;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            max-width: 1200px;
+            padding: 20px;
+            margin-top:80px;
+        }
+
+        .card {
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            flex: 1 1 45%;
+            max-width: 45%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+            color: #333;
+            font-size: 1.5rem;
+        }
+
+        video, img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .back-button {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .back-button a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #0077cc;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .back-button a:hover {
+            background-color: #005fa3;
+        }
+
+        /* Navbar Styling */
+        nav {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            background: #fff;
+            z-index: 1000;
+            padding: 10px 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-nav {
+            display: flex;
+            justify-content: flex-end;
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .navbar-nav .nav-item {
+            margin-left: 15px;
+        }
+
+        .navbar-nav .nav-item a {
+            color: rgb(31, 30, 30) !important;
+            padding: 14px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s, text-decoration 0.3s;
+            text-decoration: none;
+        }
+
+        .navbar-nav .nav-item a:hover {
+            color: #f5576c;
+            text-decoration: underline;
+        }
+
+        .navbar-nav .nav-item a.active {
+            color: #f5576c;
+            font-weight: bold;
+        }
+        .navbar-brand {
+    display: flex;                      /* Flexbox for alignment */
+    justify-content: space-between;     /* Distribute the space between left and right */
+    align-items: center;                /* Vertically center the content */
+    width: 100%;                         /* Ensure full width of the navbar */
+    text-decoration: none;               /* Remove underline */
+}
+
+.navbar-brand i {
+    font-size: 2rem;                    /* Icon size */
+    color: #0d0e0f;                     /* Icon color */
+}
+
+.navbar-brand span {
+    font-size: 1.8rem;                  /* Text size */
+    color: #333;                        /* Text color */
+    font-weight: bold;                  /* Make text bold */
+    margin-left: 10px;                  /* Add space between icon and text */
+}
+
+        
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .card {
+                max-width: 90%;
+                flex: 1 1 90%;
+            }
+
+            .navbar-nav {
+                text-align: center;
+                margin-top: 10px;
+                flex-direction: column;
+            }
+
+            .navbar-nav .nav-item a {
+                padding: 10px 15px;
+                font-size: 14px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="tm-main-content" id="top">
+        <div class="tm-top-bar-bg"></div>    
+        <div class="tm-top-bar" id="tm-top-bar">
+            <div class="container">
+                <div class="row">
+                    <!-- Navbar Styling -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <div class="container-fluid">
+        <!-- Navbar Brand on the Left -->
+        <a class="navbar-brand d-flex align-items-center" href="#" style="text-decoration: none; display: flex; justify-content: flex-start;">
+            <i class="bi bi-activity" style="font-size: 2rem; color: #0f0f0f;"></i> <!-- Activity icon -->
+            <span style="font-size: 1.8rem; color: #333; font-weight: bold; margin-left: 10px;">Bone Fracture Detection</span>
+        </a>
+
+        <!-- Navbar Menu on the Right -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/register">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/index">Upload</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href='/about'>About</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+                </div> <!-- row -->
+            </div> <!-- container -->
+        </div> <!-- .tm-top-bar -->
+    </div>
+
+    <h1>Detection Result</h1>
+
+    <div class="container">
+        {% if original_file %}
+        <div class="card">
+            <h3>Original File</h3>
+            {% if original_file.endswith(('mp4', 'avi', 'mov', 'mkv')) %}
+                <video controls autoplay muted loop>
+                    <source src="{{ url_for('uploaded_file', filename=original_file) }}"  type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            {% else %}
+                <img src="{{ url_for('uploaded_file', filename=original_file) }}" alt="Original File">
+            {% endif %}
+        </div>
+        {% endif %}
+
+        {% if result_file %}
+        <div class="card">
+            <h3>Processed Image</h3>
+            <img src="{{ url_for('result_file', filename=result_file) }}" alt="Result File">
+        </div>
+        {% elif result_video %}
+        <div class="card">
+            <h3>Processed Video</h3>
+            <video controls autoplay muted loop>
+                <source src="{{ url_for('result_video', filename=result_video) }} "  type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        {% endif %}
+    </div>
+
+    <div class="back-button">
+        <a href="{{ url_for('index') }}">Back to Index Page</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Load stylesheets -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">  <!-- Google web font "Open Sans" -->
+    <link rel="stylesheet" href="static/font-awesome-4.7.0/css/font-awesome.min.css">                <!-- Font Awesome -->
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">                                      <!-- Bootstrap style -->
+    <link rel="stylesheet" type="text/css" href="static/css/datepicker.css"/>
+    <link rel="stylesheet" type="text/css" href="static/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="static/slick/slick-theme.css"/>
+    <link rel="stylesheet" href="static/css/templatemo-style.css">                                   <!-- Templatemo style -->
+    <title>YOLO Video Detection</title>
+    <style>
+        /* General Body Styling */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: linear-gradient(135deg, #917e93, #fcf9fa);
+            color: #333;
+            text-align: center;
+            padding: 60px 20px;
+            margin: 0;
+        }
+
+        /* Navbar Styling */
+        nav {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            background: #fff;
+            z-index: 1000;
+            padding: 10px 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-nav {
+            display: flex;
+            justify-content: flex-end;
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .navbar-nav .nav-item {
+            margin-left: 15px;
+        }
+
+        .navbar-nav .nav-item a {
+            color: rgb(31, 30, 30) !important;
+            padding: 14px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s, text-decoration 0.3s;
+            text-decoration: none;
+        }
+
+        .navbar-nav .nav-item a:hover {
+            color: #f5576c;
+            text-decoration: underline;
+        }
+
+        .navbar-nav .nav-item a.active {
+            color: #f5576c;
+            font-weight: bold;
+        }
+
+        /* Heading Styling */
+        h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-top: 100px; /* Ensure there's enough space for navbar */
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+            color: #333;
+            letter-spacing: 2px;
+        }
+
+        /* Form Styling */
+        form {
+            background: #fff;
+            color: #333;
+            padding: 30px;
+            border-radius: 12px;
+            display: inline-block;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 500px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        form:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        input[type="file"] {
+            margin-bottom: 25px;
+            border-radius: 8px;
+            padding: 15px;
+            font-size: 1.1rem;
+            border: 1px solid #ddd;
+            transition: border 0.3s, background-color 0.3s;
+            width: 100%;
+        }
+
+        input[type="file"]:focus {
+            border-color: #f5576c;
+            background-color: #f9f9f9;
+        }
+
+        button {
+            padding: 14px 40px;
+            background: #f5576c;
+            border: none;
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            background: #000000;
+            transform: scale(1.05);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            form {
+                width: 100%;
+                padding: 20px;
+            }
+
+            .navbar-nav {
+                text-align: center;
+                margin-top: 10px;
+                flex-direction: column;
+            }
+
+            .navbar-nav .nav-item a {
+                padding: 10px 15px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul class="navbar-nav">
+            <li class="nav-item"><a href="/" class="nav-link text-dark">Home</a></li>
+            <li class="nav-item"><a href="/register" class="nav-link text-dark">Register</a></li>
+            <li class="nav-item"><a href="/login" class="nav-link text-dark">Login</a></li>
+            <li class="nav-item"><a href="/index" class="nav-link text-dark">Upload</a></li>
+        </ul>
+    </nav>
+
+    <div class="tm-main-content" id="top">
+        <h1>Upload an Image for YOLO Detection</h1>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" accept="file" required>
+            <br>
+            <button type="submit">Upload</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Boen fracture detection</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+    
+</head>
+<style>
+  /* Hero Section */
+  .hero {
+    background: url('static/img0.jpg') no-repeat;
+    background-position: center center;
+    background-size: cover;
+    height: 120vh;
+    width: 95%;
+    display: flex;
+    justify-content: center; /* Horizontally centers content */
+    align-items: center; /* Vertically centers content */
+    text-align: center;
+    color: white;
+    position: relative;
+    margin: 0 auto;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.hero h1 {
+    font-size: 2.9rem;
+    font-weight: bold;
+    opacity: 0; /* Initially hidden */
+    animation: slideInFromLeft 1s ease-in-out forwards;
+    animation-delay: 0.1s;
+    position: relative;
+    margin-bottom: 20px; /* Adjust space below heading */
+    color:#f3f3f3;
+}
+
+.hero .content p {
+    font-size: 1.8rem;
+    opacity: 0; /* Initially hidden */
+    animation: slideInFromRight 1s ease-in-out forwards;
+    animation-delay: 0.4s;
+    position: relative;
+    color:rgb(242, 237, 237);
+}
+
+/* Adjusting the position using top/bottom/left/right */
+.hero h1 {
+    position: absolute;
+    top: 18%; /* Adjust the distance from the top */
+    left: 18%;
+    transform: translateX(-50%); /* Centers the element horizontally */
+}
+
+.hero .content p {
+    position: absolute;
+    bottom: 71%; /* Adjust the distance from the bottom */
+    left: 30%;
+    transform: translateX(-50%); /* Centers the paragraph horizontally */
+}
+
+
+.hero .btn {
+    font-size: 1.25rem;
+    background-color: #81B29A;
+    border: none;
+    padding: 10px 20px;
+    opacity: 0;
+    animation: slideInFromBottom 1s ease-in-out forwards;
+    animation-delay: 0.6s;
+    position: absolute; /* Make button position absolute within the .hero container */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Position the button in different corners dynamically */
+.hero .btn.top-left {
+    top: 30px;
+    left: 50px;
+}
+
+.hero .btn.top-right {
+    top: 20px;
+    right: 50px; /* Adjusted to avoid overlap */
+}
+
+.hero .btn.bottom-left {
+    bottom: 30px;
+    left: 30px;
+}
+
+.hero .btn.bottom-right {
+    bottom: 20px;
+    right: 30px;
+}
+
+/* Hover effect for the button */
+.hero .btn:hover {
+    background-color: #355F44;
+}
+
+
+/* Keyframe Animations */
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Slide-in from Left */
+@keyframes slideInFromLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Slide-in from Right */
+@keyframes slideInFromRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Slide-in from Bottom */
+@keyframes slideInFromBottom {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Header */
+.header {
+    background-color: white;
+    color: black;
+    padding: 15px 0;
+}
+
+.header .logo img {
+    width: 50px;
+    height: 50px;
+}
+
+.nav-item a {
+    color: black !important;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.nav-item a:hover {
+    background-color: #81B29A !important;
+    color: #343a40;
+}
+
+
+/* Features Section - Single Feature per Row with Alternating Layout */
+.features .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.features .row > .col-md-6 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Full width per feature */
+    margin-bottom: 30px; /* Space between features */
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Keyframes for sliding in from left and right */
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromRight {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.features .row > .col-md-6:nth-child(odd) {
+    flex-direction: row-reverse; /* Image on the right for odd rows */
+    animation: slideInFromRight 1s ease-in-out forwards;
+}
+
+.features .row > .col-md-6:nth-child(even) {
+    animation: slideInFromLeft 1s ease-in-out forwards;
+}
+
+/* Image styling */
+.features .row > .col-md-6 img {
+    width: 50%; /* Image takes 50% width */
+    height: auto;
+    margin-right: 20px;
+}
+
+.features .row > .col-md-6:nth-child(odd) img {
+    margin-left: 20px; /* Reversed margin for odd rows */
+    border-radius: 15px; /* Adjust the radius as needed */
+}
+
+/* Ensure border radius is applied to all images in the Features Section */
+.features .row .col-md-6 img {
+    border-radius: 15px; /* Apply border-radius to all images */
+}
+
+/* Text Styling */
+.features .row > .col-md-6 h3,
+.features .row > .col-md-6 p {
+    width: 50%; /* Text takes 50% width */
+    padding-left: 20px;
+    opacity: 0;
+    animation: fadeInText 1s ease-in-out forwards;
+}
+
+.features .row > .col-md-6:nth-child(odd) h3,
+.features .row > .col-md-6:nth-child(odd) p {
+    animation-delay: 0.5s; /* Delay for odd images */
+}
+
+/* Increase font size for <p> descriptions in Features Section */
+.features .row > .col-md-6 p {
+    font-size: 1.4rem; /* You can adjust this value as needed */
+}
+
+
+/* Fade-in Text Animation */
+@keyframes fadeInText {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+
+/* Project Section */
+.project-section {
+    position: relative;
+    margin-top: 50px;
+    background-color: white; /* White background */
+}
+
+/* Add fade-in effect to text */
+.fade-in-text {
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+    padding-top: 20px;
+}
+
+.project-section img {
+    width: 100%;
+    height: auto;
+    opacity: 0.85;
+    transition: opacity 0.3s ease;
+}
+
+.project-section img:hover {
+    opacity: 1;
+}
+
+/* Fade-in Animation for Text */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+ /* Testimonials Section */
+ .testimonials-section {
+    background-color: #f8f9fa;
+}
+
+.testimonials-section h2 {
+    font-size: 2rem;
+    color: #007BFF;
+    margin-bottom: 30px;
+}
+
+.testimonial {
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.testimonial p {
+    font-size: 1.1rem;
+    color: #555;
+    font-style: italic;
+}
+
+.testimonial p:before {
+    content: '"';
+    font-size: 2rem;
+    color: #007BFF;
+}
+
+/* Footer */
+.footer {
+    background-color: #343a40;
+    color: white;
+    padding: 30px;
+    margin-top: 50px;
+}
+
+.footer a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: #81B29A;
+    text-decoration: underline;
+}
+
+
+
+
+
+/* Card Hover Effect */
+.card {
+    border: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Card Image Hover */
+.card-img-top {
+    transition: transform 0.1s ease;
+    border-radius: 20px;
+}
+
+
+
+</style>
+<body>
+
+    <!-- Header Section -->
+    <header class="header py-4">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="logo d-flex align-items-center">
+                <img src="static/ic1.png" alt="Logo" class="img-fluid" style="width: 50px; height: 50px;">
+
+                <span class="ms-3" style="font-size: 3rem; font-weight: 800; font-family: 'Georgia', serif; color: #000000; text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);">
+                    Bone fractures detection
+                </span>
+                
+            </div>
+            <nav>
+                <ul class="nav">
+                    <li class="nav-item"><a href="/" class="nav-link text-dark">Home</a></li>
+                    <li class="nav-item"><a href="#features" class="nav-link text-dark">Features</a></li>
+                    <li class="nav-item"><a href="/register" class="nav-link text-dark">Register</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="content">
+            <h1>Detection of Bone Fractures in X-Ray
+                Images Using Hybrid YOLO
+                </h1>
+            <p class="lead">Detection of Hand Bone Fractures in X-Ray
+                Images Using Hybrid YOLO NAS.</p>
+            <a href="/register" class="btn btn-light btn-lg">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features py-5" id="features">
+        <div class="container">
+            <h2 class="text-center mb-5">Key Features</h2>
+            <div class="row">
+                <div class="col-md-6 text-center mb-4">
+                    <img src="static/img12.jpg" alt="Fractures" class="img-fluid mb-3" width="300" height="150">
+                    <h3>Fractures</h3>
+                    <p>Identify fractures in bones and their types for accurate diagnosis and treatment.</p>
+                </div>
+                <div class="col-md-6 text-center mb-4">
+                    <img src="static/img13.jpg" alt="Line" class="img-fluid mb-3" width="300" height="300">
+                    <h3>Line</h3>
+                    <p>Detect line fractures to help in proper alignment and healing of bones.</p>
+                </div>
+                <div class="col-md-6 text-center mb-4">
+                    <img src="static/img11.jpg" alt="Angle" class="img-fluid mb-3" width="300" height="300">
+                    <h3>Angle</h3>
+                    <p>Identify angled fractures to prevent further misalignment and complications.</p>
+                </div>
+                <div class="col-md-6 text-center mb-4">
+                    <img src="static/img14.jpg" alt="Messed_up_angle" class="img-fluid mb-3" width="300" height="300">
+                    <h3>Messed_up_angle</h3>
+                    <p>Analyze complex fractures with messed-up angles for better surgical planning.</p>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Project-Related Section -->
+<section class="project-section py-5" style="background-color: white;">
+    <div class="container text-center">
+        <img src="static/img8.jpg" alt="Sentiment Analysis Process" class="img-fluid mb-3">
+        <div class="overlay fade-in-text">
+            <h2>Deep Dive into Bone Fracture Detection</h2>
+            <p>Learn how bone fracture detection models can analyze X-ray images and provide accurate insights for medical diagnoses and treatments.</p>
+        </div>
+    </div>
+</section>
+
+<section id="testimonials" class="testimonials-section">
+    <div class="container">
+        <h2>What Our Users Say</h2>
+        <div class="testimonial">
+            <p>"This bone fracture detection system has been a game-changer in our clinic. It's fast, reliable, and easy to use. Our doctors can now detect fractures with greater accuracy and speed." - Dr. Teja</p>
+        </div>
+        <div class="testimonial">
+            <p>"As a radiologist, I find this tool incredibly helpful. It saves time and reduces the chances of missing a fracture. Highly recommend!" - Dr. Akhil Toxiic</p>
+        </div>
+    </div>
+</section>
+
+
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2024 Sentiment Analysis Project. All Rights Reserved.</p>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="#">Instagram</a></li>
+                <li class="list-inline-item"><a href="#">Twitter</a></li>
+                <li class="list-inline-item"><a href="#">LinkedIn</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>

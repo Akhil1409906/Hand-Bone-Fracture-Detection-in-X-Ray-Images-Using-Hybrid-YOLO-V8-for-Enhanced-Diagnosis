@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, #ffffff, #d0d3d8);
+            font-family: 'Arial', sans-serif;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            display: flex;
+            width: 90%;
+            height: 80%;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+        .image-container {
+            flex: 1;
+            background: url('static/img6.jpg') no-repeat center center;
+            background-size: cover;
+        }
+        nav {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px 20px;
+}
+
+.nav-item a {
+    color: rgb(16, 15, 15) !important;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: color 0.3s, text-decoration 0.3s;
+    text-decoration: none;  /* Remove any default underline */
+    font-size: 1.2rem;
+}
+
+.nav-item a:hover {
+    color: #121212;
+    text-decoration: underline;  /* Add underline on hover */
+}
+
+        .form-container {
+            flex: 1;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: #333;
+        }
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .form-container .btn {
+            background: linear-gradient(to right, #6970a8, #c5d1e6);
+            color: #fff;
+            font-weight: bold;
+        }
+        .form-container .btn:hover {
+            background: linear-gradient(to right, #2575fc, #6970a8);
+        }
+        .form-container .form-control:focus {
+            border-color: #6a11cb;
+            box-shadow: 0 0 5px rgba(106, 17, 203, 0.5);
+        }
+        .top-links {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            display: flex;
+            gap: 15px;
+        }
+        .top-links a {
+            text-decoration: none;
+            color: black;
+            padding: 10px 20px;
+            border: 1px solid black;
+            border-radius: 5px;
+            transition: 0.3s;
+            display: inline-block;
+            text-align: center;
+        }
+        .top-links a:hover {
+            background: #000;
+            color: #fff;
+            border-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul class="nav">
+            <li class="nav-item"><a href="/" class="nav-link text-dark">Home</a></li>
+            <li class="nav-item"><a href="/register" class="nav-link text-dark">Register</a></li>
+            <li class="nav-item"><a href="/login" class="nav-link text-dark">Login</a></li>
+            
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="image-container"></div>
+        <div class="form-container">
+            <h2>Login</h2>
+            <form method="POST" action="{{ url_for('login') }}" id="loginForm">
+           
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="username" placeholder="Enter your username" required>
+                </div>
+                <div class="mb-3">
+                    <label for="loginPassword" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="loginPassword" placeholder="Enter your password" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // Simulating successful login
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('loginPassword').value;
+            
+            // Simple validation (you can improve this by checking with stored data)
+            if (username && password) {
+                alert("Login Successful!");
+                
+                // Redirect to detect.html after successful login
+                window.location.href = "/index";  // Adjust the path if needed
+            } else {
+                alert("Please enter valid credentials.");
+            }
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

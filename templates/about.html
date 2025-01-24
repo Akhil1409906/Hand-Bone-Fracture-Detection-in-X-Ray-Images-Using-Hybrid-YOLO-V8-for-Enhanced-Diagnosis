@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Bone Fracture Detection</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet"> <!-- Link to the separate CSS file -->
+</head>
+<style>
+    /* General Body Styles */
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f7f9fc;
+}
+
+/* Navbar Styles */
+.navbar {
+    position: fixed; /* Fixed navbar */
+    top: 0;
+    width: 100%;
+    background-color: #ffffff;
+    z-index: 1000;
+    padding: 15px 30px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #130f0f;
+}
+
+.navbar-nav .nav-link {
+    color: #0b0d0f !important;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    background-color: #ffffff;
+    border-radius: 5px;
+    text-decoration: underline;
+}
+/* Add space between navbar items */
+.navbar-nav .nav-item {
+    margin-left: 20px; /* Adjust the space between items */
+}
+
+
+/* About Section */
+#about {
+    padding-top: 100px; /* Adjust for navbar */
+    background-color: #ffffff;
+    padding-bottom: 50px;
+}
+
+#about h2 {
+    font-size: 2.5rem;
+    color: #212529;
+    text-align: center;
+}
+
+#about h3 {
+    font-size: 2rem;
+    color: #343a40;
+    text-align: center;
+    font-weight: bold;
+}
+
+#about p {
+    font-size: 1.2rem;
+    color: #6c757d;
+    text-align: justify;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+#about .content {
+    margin: 40px 0;
+}
+
+#about img {
+    width: 100%;
+    max-width: 800px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #47627d;
+    color: #f8f9fa;
+    padding: 20px;
+    text-align: center;
+    margin-top: auto;
+}
+
+/* Responsive Styles */
+@media (max-width: 767px) {
+    .navbar-nav .nav-link {
+        padding: 10px 15px;
+    }
+    #about h2 {
+        font-size: 2rem;
+    }
+}
+
+</style>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-activity"></i> <!-- Activity icon -->
+                Bone Fracture Detection
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/register">REGISTER</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">LOGIN</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index">UPLOAD</a>
+                    </li>
+                   
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">ABOUT</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>About Us</h2>
+
+            <div class="content">
+                <h3>About Bone Fracture Detection and YOLO Algorithms</h3>
+                <p>
+                    YOLO (You Only Look Once) is an advanced deep learning algorithm that has revolutionized the way automated medical imaging is performed, particularly in the detection of bone fractures. YOLO processes images extremely quickly, analyzing the entire image in one go, which makes it highly efficient for real-time applications. This capability is especially beneficial in the fast-paced world of emergency medicine, where time is critical and quick diagnoses are crucial. YOLO's speed and accuracy allow it to detect fractures in X-ray images in a matter of milliseconds, which helps doctors make informed decisions quickly.
+                </p>
+                <p>
+                    The ability of YOLO to detect a wide range of anomalies makes it an invaluable tool in medical diagnostics. It identifies various types of fractures, such as linear, oblique, and comminuted fractures, with exceptional precision. The main advantage of YOLO is that it automates the initial stage of diagnosis, eliminating human error and reducing the time spent analyzing images. This not only increases the efficiency of healthcare professionals but also contributes to better patient outcomes as treatment can begin faster.
+                </p>
+              <center>  <img src="{{ url_for('static', filename='img2.jpg') }}" alt="YOLO Algorithm Processing"></center>
+
+                <h3>Bone Fracture Classes Detection</h3>
+                <p>
+                    The Bone Fracture Detection system powered by YOLO employs advanced techniques to classify bone fractures into distinct categories. This classification is essential as different types of fractures may require varying treatment approaches, and early identification is critical to achieving the best possible outcomes for patients. The system is capable of detecting the following fracture classes:
+                </p>
+                <p>
+                    <strong>Fracture:</strong> This is a general term used to describe any break in the bone. It can range from a simple crack to more complex injuries, depending on the severity and nature of the fracture. Early detection of fractures ensures that the bone is treated before further complications arise.
+                </p>
+                <p>
+                    <strong>Line Fracture:</strong> A line fracture is a straight-line break in the bone, often caused by a direct force or impact. These fractures are typically easier to treat compared to other types, as they are usually stable and less complicated.
+                </p>
+                <p>
+                    <strong>Angle Fracture:</strong> This type of fracture occurs when the bone breaks at an angle, often resulting from rotational forces or trauma. Angle fractures can be more challenging to treat as they may disrupt the bone’s alignment, requiring more careful management and intervention.
+                </p>
+                <p>
+                    <strong>Messed Up Angle:</strong> A messed up angle fracture refers to a more complex injury where the bone breaks into multiple pieces at irregular angles. These fractures are more difficult to treat and often require surgical intervention. They are usually the result of severe trauma and can pose significant challenges in terms of recovery.
+                </p>
+                    <center><img src="{{ url_for('static', filename='img5.jpg') }}" alt="Bone Fracture Classes Example"></center>
+
+                <h3>Why This Project is Important</h3>
+                <p>
+                    The Bone Fracture Detection system is an essential tool in modern healthcare. As the global population grows, so does the demand for faster and more efficient medical treatments. This system provides a way to significantly reduce diagnosis time, ensuring that bone fractures are detected early, leading to quicker interventions and better recovery rates. The integration of AI and deep learning algorithms like YOLO has the potential to revolutionize healthcare by automating routine tasks and allowing healthcare professionals to focus on more complex aspects of care.
+                </p>
+                <p>
+                    The speed and precision of the Bone Fracture Detection system can be especially crucial in emergency medical situations, where the rapid diagnosis of fractures can make the difference between life and death. Furthermore, this system reduces the workload on radiologists and doctors by automating the initial detection phase. This allows medical staff to dedicate more time to treatment planning and patient care, enhancing the overall efficiency of healthcare services.
+                </p>
+                <p>
+                    This project is also important for reducing human error in medical diagnoses. By relying on AI-driven tools, the risk of misdiagnosis due to fatigue or oversight is minimized, ensuring that patients receive accurate and timely care. As AI continues to evolve, its role in healthcare will only grow, bringing more advanced solutions to the medical field, ultimately improving patient outcomes worldwide.
+                </p>
+                 <center><img src="{{ url_for('static', filename='img15.jpg') }}" alt="Fracture Detection in X-ray"></center>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Bone Fracture Detection Project. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
